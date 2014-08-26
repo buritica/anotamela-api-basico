@@ -1,6 +1,7 @@
 var request = require('supertest');
 var api = require('../server.js');
 var host = process.env.API_TEST_HOST || api;
+var async = require('async');
 
 request = request(host);
 
@@ -47,6 +48,7 @@ describe('Coleccion de Notas [/notas]', function() {
 
   describe('GET', function() {
     it('deberia obtener una nota existente', function(done) {
+      var id;
       var data = {
         "nota": {
           "title": "Mejorando.la #node-pro",
@@ -56,42 +58,42 @@ describe('Coleccion de Notas [/notas]', function() {
         }
       };
 
-      request
-        .post('/notas')
-        .set('Accept', 'application/json')
-        .send(data)
-        .expect(201)
-        .expect('Content-Type', /application\/json/)
-        .end(function(err, res) {
-
-          var body = res.body;
-          console.log('body', body);
-          var id = body.nota.id;
+      async.waterfall([
+        function createPost(cb) {
+          request
+            .post('/notas')
+            .set('Accept', 'application/json')
+            .send(data)
+            .expect(201)
+            .expect('Content-Type', /application\/json/)
+            .end(cb);
+        },
+        function getNota(res, cb) {
+          id = res.body.nota.id;
 
           request.get('/notas/' + id)
             .set('Accept', 'application/json')
             .send()
             .expect(200)
             .expect('Content-Type', /application\/json/)
-            .end(function(err, res) {
-              var nota;
-              var body = res.body;
-              console.log('GET body', body);
-              // Nota existe
-              expect(body).to.have.property('notas');
-              nota = body.notas;
+            .end(cb);
+        },
+        function assertions(res, cb) {
+          var body = res.body;
 
-              // Propiedades
-              expect(nota).to.have.property('id', id);
-              expect(nota).to.have.property('title', 'Mejorando.la #node-pro');
-              expect(nota).to.have.property('description', 'Introduccion a clase');
-              expect(nota).to.have.property('type', 'js');
-              expect(nota).to.have.property('body', 'soy el cuerpo de json');
+          // Nota existe
+          expect(body).to.have.property('notas');
 
-              done(err);
-            });
-
-        });
+          var nota = body.notas;
+          // Propiedades
+          expect(nota).to.have.property('id', id);
+          expect(nota).to.have.property('title', 'Mejorando.la #node-pro');
+          expect(nota).to.have.property('description', 'Introduccion a clase');
+          expect(nota).to.have.property('type', 'js');
+          expect(nota).to.have.property('body', 'soy el cuerpo de json');
+          cb();
+        }
+      ], done);
     });
   });
 

@@ -22,6 +22,7 @@
     "winston": "~0.7.3"
   },
   "devDependencies": {
+    "async": "^0.9.0",
     "chai": "~1.9.1",
     "chai-as-promised": "~4.1.1",
     "mocha": "~1.21.3",

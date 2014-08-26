@@ -37,3 +37,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - modularizamos el recurso notas
 - paso 6
   - refactorizamos el recurso notas
+- paso 7 async
+  - refactorizamos nuestras pruebas (usando async)
