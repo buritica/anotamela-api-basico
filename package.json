@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/buritica/anotameila-api-basico/issues"
   },
-  "homepage": "https://github.com/buritica/anotamela-api-basico"
+  "homepage": "https://github.com/buritica/anotamela-api-basico",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "chai-as-promised": "~4.1.1",
+    "mocha": "~1.21.3",
+    "supertest": "~0.13.0"
+  }
 }
