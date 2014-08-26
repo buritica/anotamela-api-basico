@@ -91,7 +91,7 @@ describe('Coleccion de Notas [/notas]', function() {
     });
   });
 
-  describe('GET', function() {
+  describe('PUT', function() {
     it('deberia actualizar una nota existente', function(done) {
       var id;
       var data = {
@@ -112,6 +112,7 @@ describe('Coleccion de Notas [/notas]', function() {
       .then(function getNota(res) {
         var update = {
           "nota": {
+            "id" : res.body.nota.id,
             "title": "Mejorando.la #node-pro",
             "description": "Introduccion a clase",
             "type": "ruby",

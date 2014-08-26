@@ -32,7 +32,7 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
 - paso 3
   - escribimos prueba para GET de una nota
 - paso 4
-  - escribimor ruta para GET /notas/:id
+  - escribimos ruta para GET /notas/:id
 - paso 5
   - modularizamos el recurso notas
 - paso 6
@@ -41,3 +41,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - refactorisamos pruebas usando promises
 - paso 8
   - escribimos prueba para PUT de una nota
+- paso 9
+  - escribimos ruta para PUT /notas/:id
