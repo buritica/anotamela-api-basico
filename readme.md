@@ -27,3 +27,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - crear directorio de pruebas
   - crear servidor de express
   - crear primera prueba
+- paso 2
+  - escribimos primera ruta, tests pasan
