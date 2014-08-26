@@ -39,3 +39,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - refactorizamos el recurso notas
 - paso 7 promises
   - refactorisamos pruebas usando promises
+- paso 8
+  - escribimos prueba para PUT de una nota
