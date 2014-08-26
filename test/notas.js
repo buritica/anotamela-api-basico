@@ -239,9 +239,8 @@ describe('Coleccion de Notas [/notas]', function() {
       })
       .then(function getNotas(res) {
         id2 = res.body.nota.id;
-        return request.get('/notas/')
+        return request.get('/notas')
           .set('Accept', 'application/json')
-          .send()
           .expect(200)
           .expect('Content-Type', /application\/json/)
       }, done)
