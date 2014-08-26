@@ -18,7 +18,7 @@ app.use(bodyParser.json('application/json'));
  * Routes
  */
 var notas = require('./lib/notas');
-app.use('/notas', notas);
+app.use(notas);
 
 /**
  * Start server if we're not someone else's dependency
