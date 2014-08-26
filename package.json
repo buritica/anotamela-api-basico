@@ -16,6 +16,10 @@
     "url": "https://github.com/buritica/anotameila-api-basico/issues"
   },
   "homepage": "https://github.com/buritica/anotamela-api-basico",
+  "dependencies": {
+    "body-parser": "~1.5.2",
+    "express": "~4.6.1",
+  },
   "devDependencies": {
     "chai": "~1.9.1",
     "chai-as-promised": "~4.1.1",
