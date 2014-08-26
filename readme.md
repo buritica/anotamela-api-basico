@@ -33,3 +33,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - escribimos prueba para GET de una nota
 - paso 4
   - escribimor ruta para GET /notas/:id
+- paso 5
+  - modularizamos el recurso notas
