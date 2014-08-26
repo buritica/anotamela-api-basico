@@ -4,6 +4,7 @@
 var express = require('express');
 var logger = require('./lib/logger');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 /**
  * Locals
@@ -13,6 +14,7 @@ var port = process.env.PORT || 3000;
 
 // parse json requests
 app.use(bodyParser.json('application/json'));
+app.use(cors());
 
 /**
  * Routes
