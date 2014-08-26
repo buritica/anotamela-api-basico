@@ -21,3 +21,9 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
 ```shell
   $ make test
 ```
+
+# Pasos
+- paso 1
+  - crear directorio de pruebas
+  - crear servidor de express
+  - crear primera prueba

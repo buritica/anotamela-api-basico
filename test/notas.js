@@ -1,7 +1,6 @@
 var request = require('supertest');
 var api = require('../server.js');
 var host = process.env.API_TEST_HOST || api;
-var logger = require('../lib/logger');
 
 request = request(host);
 
@@ -20,15 +19,15 @@ describe('Coleccion de Notas [/notas]', function() {
 
       request
         .post('/notas')
+        .set('Accept', 'application/json')
         .send(data)
         .expect(201)
         .expect('Content-Type', /application\/json/)
         .end(function(err, res) {
           var nota;
-          var linked;
 
-          var body = JSON.parse(res.text);
-          logger.log(body);
+          var body = res.body;
+          console.log('body', body);
 
           // Nota existe
           expect(body).to.have.property('nota');
