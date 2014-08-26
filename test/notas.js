@@ -91,7 +91,7 @@ describe('Coleccion de Notas [/notas]', function() {
     });
   });
 
-  describe('GET', function() {
+  describe('PUT', function() {
     it('deberia actualizar una nota existente', function(done) {
       var id;
       var data = {
