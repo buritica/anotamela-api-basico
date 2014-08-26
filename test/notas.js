@@ -1,7 +1,6 @@
 var request = require('supertest-as-promised');
 var api = require('../server.js');
 var host = process.env.API_TEST_HOST || api;
-var host = 'http://localhost:4200/api';
 
 request = request(host);
 
@@ -113,7 +112,6 @@ describe('Coleccion de Notas [/notas]', function() {
       .then(function getNota(res) {
         var update = {
           "nota": {
-            "id" : res.body.nota.id,
             "title": "Mejorando.la #node-pro",
             "description": "Introduccion a clase",
             "type": "ruby",
