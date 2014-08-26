@@ -43,3 +43,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - escribimos prueba para PUT de una nota
 - paso 9
   - escribimos ruta para PUT /notas/:id
+- paso 10
+  - escribimos prueba para DELETE de una nota

@@ -150,4 +150,52 @@ describe('Coleccion de Notas [/notas]', function() {
     });
   });
 
+  describe('DELETE', function() {
+    it('deberia eliminar una nota existente', function(done) {
+      var id;
+      var data = {
+        "nota": {
+          "title": "Mejorando.la #node-pro",
+          "description": "Introduccion a clase",
+          "type": "js",
+          "body": "soy el cuerpo de json"
+        }
+      };
+
+      request
+        .post('/notas')
+        .set('Accept', 'application/json')
+        .send(data)
+        .expect(201)
+        .expect('Content-Type', /application\/json/)
+      .then(function deleteNota(res) {
+
+        id = res.body.nota.id;
+
+        return request.delete('/notas/' + id)
+          .set('Accept', 'application/json')
+          .expect(204)
+      }, done)
+      .then(function assertions(res) {
+        var nota;
+        var body = res.body;
+
+        // Respuesta vacia
+        expect(body).to.be.empty;
+
+        // Probamos que de verdad no exista
+        return request.get('/notas/' + id)
+          .set('Accept', 'application/json')
+          .send()
+          .expect(400)
+      }, done)
+      .then(function confirmation(res) {
+        var body = res.body;
+        expect(body).to.be.empty;
+        done();
+      }, done);
+
+    });
+  });
+
 });
