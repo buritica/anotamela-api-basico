@@ -51,3 +51,5 @@ La primera implementación de un API de JSON para el cliente de anotamela, usand
   - escribimos prueba para GET de todas las notas
 - paso 13
   - escribimos ruta para GET /notas/
+- paso 14
+  - agregamos cors y probamos con el cliente
