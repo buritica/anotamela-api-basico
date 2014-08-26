@@ -112,6 +112,7 @@ describe('Coleccion de Notas [/notas]', function() {
       .then(function getNota(res) {
         var update = {
           "nota": {
+            "id" : res.body.nota.id,
             "title": "Mejorando.la #node-pro",
             "description": "Introduccion a clase",
             "type": "ruby",
