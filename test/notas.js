@@ -1,11 +1,22 @@
 var request = require('supertest-as-promised');
 var api = require('../server.js');
 var host = process.env.API_TEST_HOST || api;
+var mongoose = require('mongoose');
+// var host = 'http://localhost:3000';
+
 var _ = require('lodash');
 
 request = request(host);
 
 describe('Coleccion de Notas [/notas]', function() {
+  before(function(done) {
+    mongoose.connect('mongodb://localhost/anotamela-test', done);
+  });
+
+  after(function(done) {
+    mongoose.disconnect(done);
+    mongoose.models = {};
+  });
 
   describe('POST', function() {
     it('deberia crear una nota', function(done) {
@@ -28,7 +39,7 @@ describe('Coleccion de Notas [/notas]', function() {
           var nota;
 
           var body = res.body;
-          console.log('body', body);
+          // console.log('body', body);
 
           // Nota existe
           expect(body).to.have.property('nota');
@@ -93,7 +104,7 @@ describe('Coleccion de Notas [/notas]', function() {
   });
 
   describe('PUT', function() {
-    it('deberia actualizar una nota existente', function(done) {
+    it.only('deberia actualizar una nota existente', function(done) {
       var id;
       var data = {
         "nota": {

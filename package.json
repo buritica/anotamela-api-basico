@@ -18,7 +18,9 @@
   "homepage": "https://github.com/buritica/anotamela-api-basico",
   "dependencies": {
     "body-parser": "~1.5.2",
+    "cors": "^2.4.1",
     "express": "~4.6.1",
+    "mongoose": "^3.8.15",
     "winston": "~0.7.3"
   },
   "devDependencies": {
